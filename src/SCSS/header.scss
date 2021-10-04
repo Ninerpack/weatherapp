@@ -5,6 +5,8 @@ body {
 .App {
     width: 100vw;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .Header {
@@ -12,11 +14,14 @@ body {
     height: 15%;
     color: #000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
-    margin-top: 5rem;
+    margin: 2rem;
     font-size: 30pt;
     .Nav{
-
+        margin-right: 4rem;
+        .Search {
+            border-color: black;
+        }
     }
 }

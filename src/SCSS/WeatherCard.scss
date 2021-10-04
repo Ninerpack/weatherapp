@@ -1,0 +1,19 @@
+.ContainerCard {
+    width: 10em;
+    height: 15em;
+    margin: 3rem;
+    position: relative;
+    .Card{
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+        background-color: lightblue;
+        position: absolute;
+        .CityName{
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            font-size: 20px;
+        }
+    }
+}

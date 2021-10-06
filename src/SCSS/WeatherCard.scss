@@ -1,15 +1,19 @@
 .ContainerCard {
     width: 100vw;
     height: 50vh;
-    margin: 3rem;
+    margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     .Card{
         width: 10rem;
         height: 15rem;
+        margin: 3rem;
         border-radius: 5%;
-        background-color: lightblue;
+        background: #7099FF;
+        background: -webkit-linear-gradient(top, #7099FF, #c2723e);
+        background: -moz-linear-gradient(top, #7099FF, #c2723e);
+        background: linear-gradient(to bottom, #7099FF, #c2723e);
         display: flex;
         flex-direction: column;
         justify-content: center space-between;
@@ -19,7 +23,6 @@
             font-size: 20px;
         }
         .Temp {
-
             margin-top: 2.5rem;
             font-size: 20px;
         }

@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 function WeatherCard() {
+  let api_key = "0a7f8003b0cb4b2993514953210610";
+
+  // using axios to fetch data and display to console
+  /*useEffect(() => {
+    axios.get(`http://api.weatherapi.com/v1/current.json?key=${api_key}&q=San Francisco&aqi=no`)
+    .then(response => {
+      console.log(response)
+    })
+  })
+   */
   // this will be replaced with API data
   let cities = [
     {
@@ -25,17 +36,23 @@ function WeatherCard() {
       weather_type: "Sunny",
     },
   ];
-    return (
-      <div className="ContainerCard">
-          {cities.map((city, index) => (
-              <div className="Card">
-                <p className='Name' key={ index }>{ city.name }</p>
-                <p className='Temp' key={ index }>{ city.temp }</p>
-                <p className='Type' key={ index }>{ city.weather_type }</p>
-              </div>
-            ))}
-      </div>
-    );
+  return (
+    <div className="ContainerCard">
+      {cities.map((city, index) => (
+        <div className="Card">
+          <p className="Name" key={index}>
+            {city.name}
+          </p>
+          <p className="Temp" key={index}>
+            {city.temp + "°"}
+          </p>
+          <p className="Type" key={index}>
+            {city.weather_type}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default WeatherCard

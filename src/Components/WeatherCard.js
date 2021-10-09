@@ -6,19 +6,24 @@ function WeatherCard() {
   let api_key = "0a7f8003b0cb4b2993514953210610";
 
   const [city, getCity] = useState('');
+  const [temp, getTemp] = useState('');
+  const [condition, getCondition] = useState('');
 
   const getData = () => {
     axios.get(`http://api.weatherapi.com/v1/current.json?key=${api_key}&q=San Francisco&aqi=no`)
       .then(response => {
-        const allData = response.data;
-        console.log(allData);
-        //add data to state
-        getCity(allData)
+        const cityName = response.data.location.name;
+        const temp = response.data.current.temp_f;
+        const weatherCondition = response.data.current.condition.text;
+
+        getCity(cityName);
+        getTemp(temp);
+        getCondition(weatherCondition);
       })
     .catch(error => console.error(`Error: ${error}`))
   }
 
-  // using axios to fetch data and display to console
+  // using axios to fetch data
   useEffect(() => {
     getData()
   },[]);
@@ -27,13 +32,13 @@ function WeatherCard() {
     <div className="ContainerCard">
       <div className="Card">
         <p className="Name">
-          {city.location.name}
+          {city}
         </p>
         <p className="Temp">
-          {city.current.temp_f}
+          {temp}
         </p>
         <p className="Type">
-          {city.current.condition.text}
+          {condition}
         </p>
       </div>
     </div>

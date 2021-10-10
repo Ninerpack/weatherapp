@@ -10,7 +10,7 @@ function WeatherCard() {
   const [condition, getCondition] = useState('');
 
   const getData = () => {
-    axios.get(`http://api.weatherapi.com/v1/current.json?key=${api_key}&q=San Francisco&aqi=no`)
+    axios.get(`http://api.weatherapi.com/v1/current.json?key=${api_key}&q=San Francisco&aqi=yes`)
       .then(response => {
         const cityName = response.data.location.name;
         const temp = response.data.current.temp_f;

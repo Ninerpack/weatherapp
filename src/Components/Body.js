@@ -1,12 +1,12 @@
 import React from 'react'
 import WeatherCard from './WeatherCard'
 
-function Body() {
-    return (
-      <div className='Body'>
-        <WeatherCard />
-      </div>
-    );
+const Body = ({searchTerm}) => {
+  return (
+    <div className='Body'>
+      <WeatherCard searchTerm={ searchTerm }/>
+    </div>
+  )
 }
 
 export default Body

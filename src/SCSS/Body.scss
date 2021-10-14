@@ -1,14 +1,25 @@
-.Body{
-    width: auto;
+.Body_container{
     margin: 0;
-    padding: .5rem;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-
+    padding: 0;
+    .Body {
+        width: auto;
+        margin: 0;
+        padding: .5rem;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
     .Add_location {
-        width: 6rem;
-        height: 3rem;
+        width: 100%;
+        height: 5rem;
         border-radius: 10%;
+        margin-left: 5rem;
+        margin-top: 1rem;
+
+        .Add_button {
+            width: 3rem;
+            height: 4rem;
+            margin: .5rem;
+        }
     }
 }

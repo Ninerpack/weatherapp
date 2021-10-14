@@ -1,35 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 
-const WeatherCard = ({searchTerm}) => {
-  let api_key = "0a7f8003b0cb4b2993514953210610";
+// importing the context
+import { AddressContext } from "../App";
 
-  const [city, getCity] = useState("");
-  const [temp, getTemp] = useState("");
-  const [condition, getCondition] = useState("");
-  console.log(searchTerm);
+const WeatherCard = () => {
+  // pulling the state from the useState
+  const { city, temp, condition } = useContext(AddressContext);
 
-  const getData = () => {
-    axios
-      .get(
-        `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${searchTerm}&aqi=yes`
-      )
-      .then((response) => {
-        const cityName = response.data.location.name;
-        const temp = response.data.current.temp_f;
-        const weatherCondition = response.data.current.condition.text;
-
-        getCity(cityName);
-        getTemp(temp);
-        getCondition(weatherCondition);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
-  };
-
-  // using axios to fetch data
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <div className="ContainerCard">
       <div className="Card">

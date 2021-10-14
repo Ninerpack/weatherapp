@@ -1,10 +1,13 @@
 import React from 'react'
 import WeatherCard from './WeatherCard'
 
-const Body = ({searchTerm}) => {
+const Body = () => {
   return (
     <div className='Body'>
-      <WeatherCard searchTerm={ searchTerm }/>
+      <div className='Add_location'>
+        <button className='add_button'> Add Location</button>
+      </div>
+      <WeatherCard />
     </div>
   )
 }

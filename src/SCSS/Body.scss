@@ -1,14 +1,65 @@
 .Body_container{
-    margin: 0;
+    margin: 2rem;
     padding: 0;
+    position: relative;
+
     .Body {
         width: auto;
+        height: 22rem;
         margin: 0;
         padding: .5rem;
         display: flex;
         justify-content: center;
         align-content: center;
+        border-radius: 25px;
+        border-color: gray;
+        border-style: solid;
+        position: relative;
+        background-color: rgb(236, 231, 231);
+
+        .ContainerCard {
+            width: 100vw;
+            margin: 1.5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start space-evenly;
+            align-items: center;
+            position: relative;
+
+        .Card{
+            width: 10rem;
+            height: 15rem;
+            //margin: 3rem;
+            border-radius: 10px;
+            background: #7099FF;
+            background: -webkit-linear-gradient(top, #7099FF, #c2723e);
+            background: -moz-linear-gradient(top, #7099FF, #c2723e);
+            background: linear-gradient(to bottom, #7099FF, #c2723e);
+            display: flex;
+            flex-direction: column;
+            justify-content: center space-between;
+            align-items: center;
+            position: relative;
+
+            .Name{
+                margin-top: 1rem;
+                font-size: 20px;
+            }
+
+            .Temp {
+                margin-top: 2.5rem;
+                font-size: 20px;
+            }
+
+            .Type {
+                margin-top: 3rem;
+                font-size: 20px;
+            }
+
+            }
+        }
     }
+
     .Add_location {
         width: 100%;
         height: 5rem;

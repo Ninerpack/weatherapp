@@ -8,12 +8,10 @@ const WeatherCard = () => {
   const { city, temp, condition } = useContext(AddressContext);
 
   return (
-    <div className="ContainerCard">
-      <div className="Card">
-        <p className="Name">{city}</p>
-        <p className="Temp">{temp}</p>
-        <p className="Type">{condition}</p>
-      </div>
+    <div className="Card">
+      <p className="Name">{city}</p>
+      <p className="Temp">{temp}</p>
+      <p className="Type">{condition}</p>
     </div>
   );
 };

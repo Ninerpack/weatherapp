@@ -3,27 +3,18 @@ import WeatherCard from './WeatherCard'
 import { useState } from 'react'
 
 const Body = () => {
-
-  const [card, setCard] = useState(false);
-  const [cardCounter, setCardCounter] = useState(1);
-
-  const cardHolder = [cardCounter];
-
-  const addNewCard = () => {
-    setCard(true);
-    cardHolder.push(setCardCounter + 1)
-  }
+  const [cardCounter, setCardCounter] = useState(0);
 
   return (
     <div className="Body_container">
       <div className="Add_location">
-        <button className="add_button" onClick={() => addNewCard()} id="card">
+        <button className="add_button" onClick={() => setCardCounter(current => current + 1)} id="card">
           Add Location
         </button>
       </div>
       <div className="Body" id="body">
         <div className="ContainerCard">
-          {cardHolder(cardCounter).map((card, index) => <WeatherCard key={ index }/>)}
+          {[...Array(cardCounter)].map((card, index) => <WeatherCard key={index}/>)}
         </div>
       </div>
     </div>

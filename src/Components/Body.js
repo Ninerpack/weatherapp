@@ -39,6 +39,7 @@ const Body = () => {
           <div className="Condition">{condition}</div>
         </div>
         <div className="Info-container">
+          <div className="Info-title-top">Today / Week</div>
           <div className="Weekly-info">
             {hasBeenSearched &&
               daysArray.map((item) => (
@@ -53,13 +54,44 @@ const Body = () => {
                 </div>
               ))}
           </div>
+          <div className="Info-title-bottom">Today's Highlights</div>
           <div className="Other-info">
-            <div className="Card-big">{""}</div>
-            <div className="Card-big">{""}</div>
-            <div className="Card-big">{""}</div>
-            <div className="Card-big">{""}</div>
-            <div className="Card-big">{""}</div>
-            <div className="Card-big">{""}</div>
+            <div className="Card-big">
+              <div className="Card-title">{"UV index"}</div>
+              <div className="Card-info">{"5"}</div>
+            </div>
+            <div className="Card-big">
+              <div className="Card-title">{"Wind Status"}</div>
+              <div className="Card-info">{"5 mph"}</div>
+            </div>
+            <div className="Card-big">
+              <div className="Card-title">{"Sunrise & Sunset"}</div>
+              <div className="Card-info">
+                <div>{"Sunrise"}</div>
+                <div>{"Sunset"}</div>
+              </div>
+            </div>
+            <div className="Card-big">
+              <div className="Card-title">{"Humidity"}</div>
+              <div className="Card-info">
+                <div>{"5%"}</div>
+                <div>{"Normal"}</div>
+              </div>
+            </div>
+            <div className="Card-big">
+              <div className="Card-title">{"Visibility"}</div>
+              <div className="Card-info">
+                <div>{"5 meters"}</div>
+                <div>{"Normal"}</div>
+              </div>
+            </div>
+            <div className="Card-big">
+              <div className="Card-title">{"Air Quality"}</div>
+              <div className="Card-info">
+                <div>{"5 "}</div>
+                <div>{"Healthy"}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

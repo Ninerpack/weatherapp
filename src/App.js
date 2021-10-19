@@ -27,6 +27,8 @@ function App() {
   const [sat, setSat] = useState("");
   const [satCond, setSatCond] = useState("");
 
+  const [hasBeenSearched, setHasBeenSearched] = useState(false);
+
   return (
     <div className="App">
       <AddressContext.Provider
@@ -48,6 +50,7 @@ function App() {
           friCond, setFriCond,
           sat, setSat,
           satCond, setSatCond,
+          hasBeenSearched, setHasBeenSearched
         }}
       >
         <Header />

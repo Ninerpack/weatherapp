@@ -6,8 +6,7 @@ import { AddressContext } from "../App";
 const Body = () => {
   // pulling the state from the useState
   const { city, temp, condition, sun, sunCond, mon, monCond, tue, tueCond,
-    wed, wedCond, thu, thuCond, fri, friCond, sat, satCond } = useContext(AddressContext);
-  
+    wed, wedCond, thu, thuCond, fri, friCond, sat, satCond, hasBeenSearched } = useContext(AddressContext);
 
   const getIcon = (cond) => {
     if (cond === "01d") return "01d@2x.png";
@@ -19,81 +18,40 @@ const Body = () => {
     else if (cond === "11d") return "11d@2x.png";
     else if (cond === "13d") return "13d@2x.png";
     else if (cond === "50d") return "50d@2x.png";
-  }
+  };
+  
+  const daysArray = [
+    { dayLabel: "Sun", condIcon: getIcon(String(sunCond)), temp: sun },
+    { dayLabel: "Mon", condIcon: getIcon(String(monCond)), temp: mon },
+    { dayLabel: "Tue", condIcon: getIcon(String(tueCond)), temp: tue },
+    { dayLabel: "Wed", condIcon: getIcon(String(wedCond)), temp: wed },
+    { dayLabel: "Thu", condIcon: getIcon(String(thuCond)), temp: thu },
+    { dayLabel: "Fri", condIcon: getIcon(String(friCond)), temp: fri },
+    { dayLabel: "Sat", condIcon: getIcon(String(satCond)), temp: sat },
+  ];
 
   return (
     <div className="Body_container">
       <div className="Body" id="body">
         <div className="Daily-info">
           <div className="City">{city}</div>
-          <div className="Temp">{temp}</div>
+          <div className="Temp">{Math.trunc(temp) + "°"}</div>
           <div className="Condition">{condition}</div>
         </div>
         <div className="Info-container">
           <div className="Weekly-info">
-            <div className="Card-small">
-              <div className="Day">{"Sun"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(sunCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((sun - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
-            <div className="Card-small">
-              <div className="Day">{"Mon"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(monCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((mon - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
-            <div className="Card-small">
-              <div className="Day">{"Tue"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(tueCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((tue - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
-            <div className="Card-small">
-              <div className="Day">{"Wed"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(wedCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((wed - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
-            <div className="Card-small">
-              <div className="Day">{"Thu"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(thuCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((thu - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
-            <div className="Card-small">
-              <div className="Day">{"Fri"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(friCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((fri - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
-            <div className="Card-small">
-              <div className="Day">{"Sat"}</div>
-              <div className="Icon">
-                <img src={getIcon(String(satCond))} alt="?" />
-              </div>
-              <div className="Temp">
-                {Math.trunc((sat - 273.15) * (9 / 5) + 32)}
-              </div>
-            </div>
+            {hasBeenSearched &&
+              daysArray.map((item) => (
+                <div key={item.dayLabel} className="Card-small">
+                  <div className="Day">{item.dayLabel}</div>
+                  <div className="Icon">
+                    <img src={item.condIcon} alt={item.condIcon} />
+                  </div>
+                  <div className="Temp">
+                    {Math.trunc((item.temp - 273.15) * (9 / 5) + 32) + "°"}
+                  </div>
+                </div>
+              ))}
           </div>
           <div className="Other-info">
             <div className="Card-big">{""}</div>

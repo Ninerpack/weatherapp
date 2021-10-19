@@ -7,7 +7,7 @@ import { AddressContext } from "../App";
 const Header = () => {
   // Using Address Context and pulling the things I need, which in this case are the functions to set the states
   const { setCity, setTemp, setCondition, setSun, setSunCond, setMon, setMonCond, setTue,
-    setTueCond, setWed, setWedCond, setThu, setThuCond, setFri, setFriCond, setSat, setSatCond } = useContext(AddressContext);
+    setTueCond, setWed, setWedCond, setThu, setThuCond, setFri, setFriCond, setSat, setSatCond, setHasBeenSearched } = useContext(AddressContext);
 
   // useState
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,28 +40,30 @@ const Header = () => {
 
 
   const getWeeklyForecast = () => {
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={alerts}&appid=${api_key}`
-        )
-        .then((res) => {
-          console.log(res); 
-          setSun(res.data.daily[0].temp.day);
-          setSunCond(res.data.daily[0].weather[0].icon);
-          setMon(res.data.daily[1].temp.day);
-          setMonCond(res.data.daily[1].weather[0].icon);
-          setTue(res.data.daily[2].temp.day);
-          setTueCond(res.data.daily[2].weather[0].icon);
-          setWed(res.data.daily[3].temp.day);
-          setWedCond(res.data.daily[3].weather[0].icon);
-          setThu(res.data.daily[4].temp.day);
-          setThuCond(res.data.daily[4].weather[0].icon);
-          setFri(res.data.daily[5].temp.day);
-          setFriCond(res.data.daily[5].weather[0].icon);
-          setSat(res.data.daily[6].temp.day);
-          setSatCond(res.data.daily[6].weather[0].icon);
-        })
-        .catch((error) => console.error(`Error: ${error}`));
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={alerts}&appid=${api_key}`
+      )
+      .then((res) => {
+        console.log(res); 
+        setSun(res.data.daily[0].temp.day);
+        setSunCond(res.data.daily[0].weather[0].icon);
+        setMon(res.data.daily[1].temp.day);
+        setMonCond(res.data.daily[1].weather[0].icon);
+        setTue(res.data.daily[2].temp.day);
+        setTueCond(res.data.daily[2].weather[0].icon);
+        setWed(res.data.daily[3].temp.day);
+        setWedCond(res.data.daily[3].weather[0].icon);
+        setThu(res.data.daily[4].temp.day);
+        setThuCond(res.data.daily[4].weather[0].icon);
+        setFri(res.data.daily[5].temp.day);
+        setFriCond(res.data.daily[5].weather[0].icon);
+        setSat(res.data.daily[6].temp.day);
+        setSatCond(res.data.daily[6].weather[0].icon);
+      })
+    .catch((error) => console.error(`Error: ${error}`));
+    
+    setHasBeenSearched(true);
   }
 
   return (

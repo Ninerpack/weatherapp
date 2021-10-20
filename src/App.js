@@ -9,48 +9,70 @@ export const AddressContext = React.createContext();
 
 // Main Component that renders all other components \\
 function App() {
+  const [hasBeenSearched, setHasBeenSearched] = useState(false);
+  // Main info searched
   const [city, setCity] = useState("");
-  const [temp, setTemp] = useState("");
+  const [temp, setTemp] = useState(0);
   const [condition, setCondition] = useState("");
-  const [sun, setSun] = useState("");
+
+  // Weekly info from searched
+  const [sunTemp, setSun] = useState(0);
+  const [monTemp, setMon] = useState(0);
+  const [tueTemp, setTue] = useState(0);
+  const [wedTemp, setWed] = useState(0);
+  const [thuTemp, setThu] = useState(0);
+  const [friTemp, setFri] = useState(0);
+  const [satTemp, setSat] = useState(0);
   const [sunCond, setSunCond] = useState("");
-  const [mon, setMon] = useState("");
   const [monCond, setMonCond] = useState("");
-  const [tue, setTue] = useState("");
   const [tueCond, setTueCond] = useState("");
-  const [wed, setWed] = useState("");
   const [wedCond, setWedCond] = useState("");
-  const [thu, setThu] = useState("");
   const [thuCond, setThuCond] = useState("");
-  const [fri, setFri] = useState("");
   const [friCond, setFriCond] = useState("");
-  const [sat, setSat] = useState("");
   const [satCond, setSatCond] = useState("");
 
-  const [hasBeenSearched, setHasBeenSearched] = useState(false);
+  // Other info from searched
+  const [uvIndex, setUvIndex] = useState(0);
+  const [windStatus, setWindStatus] = useState(0);
+  const [rise, setRise] = useState(0);
+  const [set, setSet] = useState(0);
+  const [humidity, setHumidity] = useState(0);
+  const [visibility, setVisibility] = useState(0);
+  const [rainChance, setRainChance] = useState(0);
 
   return (
     <div className="App">
       <AddressContext.Provider
         value={{
+          hasBeenSearched, setHasBeenSearched,
+
           city, setCity,
           temp, setTemp,
           condition, setCondition,
-          sun, setSun,
+
+          sunTemp, setSun,
+          monTemp, setMon,
+          tueTemp, setTue,
+          wedTemp, setWed,
+          thuTemp, setThu,
+          friTemp, setFri,
+          satTemp, setSat,
+
           sunCond, setSunCond,
-          mon, setMon,
           monCond, setMonCond,
-          tue, setTue,
           tueCond, setTueCond,
-          wed, setWed,
           wedCond, setWedCond,
-          thu, setThu,
           thuCond, setThuCond,
-          fri, setFri,
           friCond, setFriCond,
-          sat, setSat,
           satCond, setSatCond,
-          hasBeenSearched, setHasBeenSearched
+
+          uvIndex, setUvIndex,
+          windStatus, setWindStatus,
+          rise, setRise,
+          set, setSet,
+          humidity, setHumidity,
+          visibility, setVisibility,
+          rainChance, setRainChance
         }}
       >
         <Header />

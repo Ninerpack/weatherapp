@@ -38,7 +38,6 @@ const Body = () => {
     rainChance,
   } = useContext(AddressContext);
 
-
   const getIcon = (cond) => {
     // day
     if (cond === "01d") return "01d@2x.png";
@@ -62,13 +61,36 @@ const Body = () => {
     else if (cond === "50n") return "50n@2x.png";
   };
 
+  const getCurrentIcon = (cond) => {
+  // day
+    if (cond === "01d") return "01d@4x.png";
+    else if (cond === "02d") return "02d@4x.png";
+    else if (cond === "03d") return "03d@4x.png";
+    else if (cond === "04d") return "04d@4x.png";
+    else if (cond === "09d") return "09d@4x.png";
+    else if (cond === "10d") return "10d@4x.png";
+    else if (cond === "11d") return "11d@4x.png";
+    else if (cond === "13d") return "13d@4x.png";
+    else if (cond === "50d") return "50d@4x.png";
+    // night
+    else if (cond === "01n") return "01n@4x.png";
+    else if (cond === "02n") return "02n@4x.png";
+    else if (cond === "03n") return "03n@4x.png";
+    else if (cond === "04n") return "04n@4x.png";
+    else if (cond === "09n") return "09n@4x.png";
+    else if (cond === "10n") return "10n@4x.png";
+    else if (cond === "11n") return "11n@4x.png";
+    else if (cond === "13n") return "13n@4x.png";
+    else if (cond === "50n") return "50n@4x.png";
+  }
+
   const currentDay = [
     {
       city: city,
-      icon: getIcon(String(conditionIcon)),
+      icon: getCurrentIcon(String(conditionIcon)),
       temp: temp,
-      condition: condition
-    }
+      condition: condition,
+    },
   ];
 
   const daysArray = [
@@ -134,17 +156,17 @@ const Body = () => {
     else if (uvIndex >= 11) return "Extremely High";
   };
 
-  // converting unix number into local time 
+  // converting unix number into local time
   const getSunrise = (rise) => {
     var options = { timeZone: "America/Los_Angeles", timeZoneName: "short" };
-    const time = new Date(rise * 1000).toLocaleTimeString('en-US', options);
-    return String(time).slice(0,5) + " PM";
-  }
+    const time = new Date(rise * 1000).toLocaleTimeString("en-US", options);
+    return String(time).slice(0, 5) + " PM";
+  };
   const getSunset = (set) => {
     var options = { timeZone: "America/Los_Angeles", timeZoneName: "short" };
     const time = new Date(set * 1000).toLocaleTimeString("en-US", options);
     return String(time).slice(0, 5) + " AM";
-  }
+  };
 
   return (
     <div className="Body_container">

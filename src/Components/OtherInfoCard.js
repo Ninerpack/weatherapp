@@ -6,15 +6,14 @@ const OtherInfoCard = ({ propName, propInfo, propInfo2 }) => {
       <div key={propName} className="Card-big">
         <div className="Card-title">{propName}</div>
         <div className="Card-info">
-          {propInfo && propInfo2 ? (
-            <div>
-              <div>{propInfo}</div>
-              <div>{propInfo2}</div>
+          {(propInfo && propInfo2) || (propInfo === 0 && propInfo2) ? (
+            <div className='Prop-body'>
+              {<div className="Info-1">{propInfo}</div>}
+              {<div className="Info-2">{propInfo2}</div>}
             </div>
           ) : (
             <div>{propInfo}</div>
           )}
-          <div>{/*function*/}</div>
         </div>
       </div>
     );

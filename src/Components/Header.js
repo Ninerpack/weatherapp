@@ -12,6 +12,7 @@ const Header = () => {
     setCity,
     setTemp,
     setCondition,
+    setConditionIcon,
 
     setSunTemp,
     setMonTemp,
@@ -60,6 +61,7 @@ const Header = () => {
         console.log(response);
         // Getting main display data
         setCity(response.data.name);
+        setConditionIcon(response.data.weather[0].icon)
         setTemp(response.data.main.temp);
         setCondition(response.data.weather[0].main);
         setLat(response.data.coord.lat);

@@ -14,6 +14,7 @@ function App() {
   const [city, setCity] = useState("");
   const [temp, setTemp] = useState(0);
   const [condition, setCondition] = useState("");
+  const [conditionIcon, setConditionIcon] = useState("");
 
   // Weekly info from searched
   const [sunTemp, setSunTemp] = useState(0);
@@ -49,6 +50,7 @@ function App() {
           city, setCity,
           temp, setTemp,
           condition, setCondition,
+          conditionIcon, setConditionIcon,
 
           sunTemp, setSunTemp,
           monTemp, setMonTemp,

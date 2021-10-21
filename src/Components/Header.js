@@ -13,13 +13,13 @@ const Header = () => {
     setTemp,
     setCondition,
 
-    setSun,
-    setMon,
-    setTue,
-    setWed,
-    setThu,
-    setFri,
-    setSat,
+    setSunTemp,
+    setMonTemp,
+    setTueTemp,
+    setWedTemp,
+    setThuTemp,
+    setFriTemp,
+    setSatTemp,
 
     setSunCond,
     setMonCond,
@@ -77,13 +77,13 @@ const Header = () => {
       .then((res) => {
         console.log(res);
         // Getting weekly data
-        setSun(res.data.daily[0].temp.day);
-        setMon(res.data.daily[1].temp.day);
-        setTue(res.data.daily[2].temp.day);
-        setWed(res.data.daily[3].temp.day);
-        setThu(res.data.daily[4].temp.day);
-        setFri(res.data.daily[5].temp.day);
-        setSat(res.data.daily[6].temp.day);
+        setSunTemp(res.data.daily[0].temp.day);
+        setMonTemp(res.data.daily[1].temp.day);
+        setTueTemp(res.data.daily[2].temp.day);
+        setWedTemp(res.data.daily[3].temp.day);
+        setThuTemp(res.data.daily[4].temp.day);
+        setFriTemp(res.data.daily[5].temp.day);
+        setSatTemp(res.data.daily[6].temp.day);
 
         // Getting other info data
         // Top info
@@ -102,7 +102,7 @@ const Header = () => {
         setSet(res.data.current.sunset);
         setHumidity(res.data.current.humidity);
         setVisibility(res.data.current.visibility);
-        setRainChance(res.data.current.daily[0].pop);
+        setRainChance(res.data.daily[0].pop);
       })
       .catch((error) => console.error(`Error: ${error}`));
     

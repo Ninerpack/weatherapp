@@ -16,13 +16,13 @@ function App() {
   const [condition, setCondition] = useState("");
 
   // Weekly info from searched
-  const [sunTemp, setSun] = useState(0);
-  const [monTemp, setMon] = useState(0);
-  const [tueTemp, setTue] = useState(0);
-  const [wedTemp, setWed] = useState(0);
-  const [thuTemp, setThu] = useState(0);
-  const [friTemp, setFri] = useState(0);
-  const [satTemp, setSat] = useState(0);
+  const [sunTemp, setSunTemp] = useState(0);
+  const [monTemp, setMonTemp] = useState(0);
+  const [tueTemp, setTueTemp] = useState(0);
+  const [wedTemp, setWedTemp] = useState(0);
+  const [thuTemp, setThuTemp] = useState(0);
+  const [friTemp, setFriTemp] = useState(0);
+  const [satTemp, setSatTemp] = useState(0);
   const [sunCond, setSunCond] = useState("");
   const [monCond, setMonCond] = useState("");
   const [tueCond, setTueCond] = useState("");
@@ -50,13 +50,13 @@ function App() {
           temp, setTemp,
           condition, setCondition,
 
-          sunTemp, setSun,
-          monTemp, setMon,
-          tueTemp, setTue,
-          wedTemp, setWed,
-          thuTemp, setThu,
-          friTemp, setFri,
-          satTemp, setSat,
+          sunTemp, setSunTemp,
+          monTemp, setMonTemp,
+          tueTemp, setTueTemp,
+          wedTemp, setWedTemp,
+          thuTemp, setThuTemp,
+          friTemp, setFriTemp,
+          satTemp, setSatTemp,
 
           sunCond, setSunCond,
           monCond, setMonCond,

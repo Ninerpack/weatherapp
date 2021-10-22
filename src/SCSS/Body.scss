@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+// VARIABLES
 $white: #fff;
 $black: #000;
 
@@ -9,6 +12,7 @@ $black: #000;
     justify-content: center;
 
     .Body {
+        font-family: 'Quicksand', sans-serif;
         min-height: 50rem;
         width: 100rem;
         height: 50rem;
@@ -34,6 +38,7 @@ $black: #000;
                 font-size: 50px;
                 margin-left: 3rem;
                 margin-top: 3rem;
+                margin-right: 3rem;
                 // display: flex;
                 // justify-content: center;
                 // align-items: center;
@@ -41,24 +46,27 @@ $black: #000;
 
             .weather-img {
                 margin-left: 3rem;
-                margin-top: 3rem;
+                margin-top: 1rem;
                 
                 img {
-                    //width: 20px;
+                    
                 }
             }
 
             .Temp {
                 font-size: 60px;
                 margin-left: 3rem;
-                margin-top: 3rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
             }
 
             .Date-time {
                 margin-left: 3rem;
+                margin-bottom: 2rem;
                 
                 span{
                     font-size: 18px;
+                    font-weight: bold;
                 }
             }
 
@@ -104,6 +112,7 @@ $black: #000;
                 align-items: center;
 
                 .Card-small {
+                    font-weight: bold;
                     background-color: $white;
                     width: 6rem;
                     height: 8rem;
@@ -162,7 +171,8 @@ $black: #000;
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        font-size: 25px;
+                        font-size: 35px;
+                        font-weight: bold;
 
                         .Prop-body {
                             width: 100%;

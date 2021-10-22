@@ -168,6 +168,27 @@ const Body = () => {
     return String(time).slice(0, 5) + " AM";
   };
 
+  const getTime = () => {
+    var time = new Date();
+    var hour = time.getHours();
+    hour = ((hour + 11) % 12 + 1);
+    var minute = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
+    return hour + ':' + minute;
+  }
+
+  const getDay = () => {
+    var day = new Date();
+    var current = day.getDay()
+
+    if (current === 1) return "Monday";
+    else if (current === 2) return "Tuesday";
+    else if (current === 3) return "Wednesday";
+    else if (current === 4) return "Thursday";
+    else if (current === 5) return "Friday";
+    else if (current === 6) return "Saturday";
+    else if (current === 7) return "Sunday";
+  }
+
   return (
     <div className="Body_container">
       <div className="Body" id="body">
@@ -177,6 +198,10 @@ const Body = () => {
             <img src={currentDay[0].icon} alt={currentDay[0].icon} />
           </div>
           <div className="Temp">{Math.trunc(currentDay[0].temp) + "°"}</div>
+          <div className='Date-time'>
+            <span>{ getDay()  + ', '}</span>
+            <span>{ getTime() }</span>
+          </div>
           <div className="spacer"></div>
           <div className="Condition">{currentDay[0].condition}</div>
         </div>
@@ -190,7 +215,7 @@ const Body = () => {
                     <div className="Icon">
                       <img src={item.condIcon} alt={item.condIcon} />
                     </div>
-                    <div className="Temp">{Math.trunc(item.temp) + "°"}</div>
+                  <div className="Temp">{Math.trunc(item.temp) + "°"}</div>
                   </div>
                 ))
               : daysArray.map(() => <div className="Card-small" />)}

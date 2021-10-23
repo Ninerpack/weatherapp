@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import Places from "google-places-web";
 
 // importing the context
 import { AddressContext } from "../App";
@@ -10,6 +11,7 @@ const Header = () => {
   const OPEN_WEATHER_KEY = '4c9c09da9dd01b0168f894bc925358bd';
   // Google Places API key //
   const PLACES_KEY = "AIzaSyAyoffdXVUVUzlS7BtBiDb9H8f6rnDKHcA";
+  Places.apiKey = PLACES_KEY;
 
   // Using Address Context and pulling the things I need, which in this case are the functions to set the states
   const {
@@ -113,14 +115,17 @@ const Header = () => {
     setHasBeenSearched(true);
   };
 
-  const getPlaces = () => {
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/place/details/json?place_id=${'id of place'}&fields=photo&key=${PLACES_KEY}`
-      )
-      .then((res) => {})
-      .catch((error) => console.error(`Error: ${error}`));
-  }
+  // const getPlaces = () => {
+  //   axios
+  //     .get(
+  //       `https://maps.googleapis.com/maps/api/place/details/json?place_id=${searchTerm}&fields=photo&key=${PLACES_KEY}`
+  //     )
+  //     .then((res) => {
+  //       console.log("GOOGLE ", res)
+  //     })
+  //     .catch((error) => console.error(`Error: ${error}`));
+  // }
+
 
   return (
     <div className="Header">
@@ -137,6 +142,7 @@ const Header = () => {
           onClick={() => {
             getDailyForecast();
             getWeeklyForecast();
+            //getPlaces();
           }}
           id="search_button"
           type="submit"

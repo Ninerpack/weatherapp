@@ -207,8 +207,8 @@ const Body = () => {
           </div>
           <div className="spacer"></div>
           <div className="Condition">{currentDay[0].condition}</div>
-          <div className="">
-            <img />
+          <div className="current_location_img">
+            <img src={''} alt={ ''}/>
           </div>
         </div>
 

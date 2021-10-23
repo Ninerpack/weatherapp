@@ -5,6 +5,12 @@ import axios from "axios";
 import { AddressContext } from "../App";
 
 const Header = () => {
+  // API KEYS //
+  // Open Weather Map API key //
+  const OPEN_WEATHER_KEY = '4c9c09da9dd01b0168f894bc925358bd';
+  // Google Places API key //
+  const PLACES_KEY = "AIzaSyAyoffdXVUVUzlS7BtBiDb9H8f6rnDKHcA";
+
   // Using Address Context and pulling the things I need, which in this case are the functions to set the states
   const {
     setHasBeenSearched,
@@ -44,9 +50,6 @@ const Header = () => {
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
 
-  // api key
-  const api_key = "4c9c09da9dd01b0168f894bc925358bd";
-
   const handleInput = (e) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
@@ -55,13 +58,13 @@ const Header = () => {
   const getDailyForecast = () => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${api_key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${OPEN_WEATHER_KEY}`
       )
       .then((response) => {
         console.log(response);
         // Getting main display data
         setCity(response.data.name);
-        setConditionIcon(response.data.weather[0].icon)
+        setConditionIcon(response.data.weather[0].icon);
         setTemp(response.data.main.temp);
         setCondition(response.data.weather[0].main);
         setLat(response.data.coord.lat);
@@ -70,11 +73,10 @@ const Header = () => {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-
   const getWeeklyForecast = () => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={alerts}&units=imperial&appid=${api_key}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={alerts}&units=imperial&appid=${OPEN_WEATHER_KEY}`
       )
       .then((res) => {
         console.log(res);
@@ -107,8 +109,17 @@ const Header = () => {
         setRainChance(res.data.daily[0].pop);
       })
       .catch((error) => console.error(`Error: ${error}`));
-    
+
     setHasBeenSearched(true);
+  };
+
+  const getPlaces = () => {
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/place/details/json?place_id=${'id of place'}&fields=photo&key=${PLACES_KEY}`
+      )
+      .then((res) => {})
+      .catch((error) => console.error(`Error: ${error}`));
   }
 
   return (
@@ -122,7 +133,14 @@ const Header = () => {
           className="Search"
         ></input>
         {/* this will call your api whatever the input value is */}
-        <button onClick={() => { getDailyForecast(); getWeeklyForecast();}} id="search_button" type="submit">
+        <button
+          onClick={() => {
+            getDailyForecast();
+            getWeeklyForecast();
+          }}
+          id="search_button"
+          type="submit"
+        >
           {" "}
           Search
         </button>

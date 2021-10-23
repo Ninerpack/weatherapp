@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 // importing the context
 import { AddressContext } from "../App";
 import OtherInfoCard from "./OtherInfoCard";
+import WeeklyInfoCard from "./WeeklyInfoCard";
 
 const Body = () => {
   // pulling the state from the useState
@@ -192,37 +193,45 @@ const Body = () => {
   return (
     <div className="Body_container">
       <div className="Body" id="body">
+
+        {/* DAILY/CURRENT INFO */}
         <div className="Daily-info">
           <div className="City">{currentDay[0].city}</div>
           <div className="weather-img">
             <img src={currentDay[0].icon} alt={currentDay[0].icon} />
           </div>
           <div className="Temp">{Math.trunc(currentDay[0].temp) + "°"}</div>
-          <div className='Date-time'>
-            <span>{ getDay()  + ', '}</span>
-            <span>{ getTime() }</span>
+          <div className="Date-time">
+            <span>{getDay() + ", "}</span>
+            <span>{getTime()}</span>
           </div>
           <div className="spacer"></div>
           <div className="Condition">{currentDay[0].condition}</div>
+          <div className="">
+            <img />
+          </div>
         </div>
+
+        {/* INFO CONTAINER */}
         <div className="Info-container">
           <div className="Info-title-top">Today / Week</div>
+          {/*///////// WEEKLY INFO //////////////*/}
           <div className="Weekly-info">
             {hasBeenSearched
               ? daysArray.map((item) => (
-                  <div key={item.dayLabel} className="Card-small">
-                    <div className="Day">{item.dayLabel}</div>
-                    <div className="Icon">
-                      <img src={item.condIcon} alt={item.condIcon} />
-                    </div>
-                  <div className="Temp">{Math.trunc(item.temp) + "°"}</div>
-                  </div>
+                  <WeeklyInfoCard
+                    propName={item.dayLabel}
+                    propIcon={item.condIcon}
+                    propTemp={item.temp}
+                  />
                 ))
-              : daysArray.map(() => <div className="Card-small" />)}
+              : daysArray.map(() => <WeeklyInfoCard />)}
           </div>
 
           <div className="Info-title-bottom">Today's Highlights</div>
+          {/*///////////// OTHER INFO /////////////*/}
           <div className="Other-info">
+            {/* Card 1 */}
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"UV Index"}
@@ -232,6 +241,8 @@ const Body = () => {
             ) : (
               <OtherInfoCard />
             )}
+
+            {/* Card 2 */}
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"Wind Status"}
@@ -240,6 +251,8 @@ const Body = () => {
             ) : (
               <OtherInfoCard />
             )}
+
+            {/* Card 3 */}
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"Sunrise & Sunset"}
@@ -249,6 +262,8 @@ const Body = () => {
             ) : (
               <OtherInfoCard />
             )}
+
+            {/* Card 4 */}
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"Humidity"}
@@ -258,6 +273,8 @@ const Body = () => {
             ) : (
               <OtherInfoCard />
             )}
+
+            {/* Card 5 */}
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"Visibility"}
@@ -266,6 +283,8 @@ const Body = () => {
             ) : (
               <OtherInfoCard />
             )}
+
+            {/* Card 6 */}
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"Chance of rain"}

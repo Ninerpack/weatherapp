@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SCSS/Main.scss";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
+import News from "./Components/News";
 import Footer from "./Components/Footer";
 
 // AddressContext
@@ -15,6 +16,8 @@ function App() {
   const [temp, setTemp] = useState(0);
   const [condition, setCondition] = useState("");
   const [conditionIcon, setConditionIcon] = useState("");
+  const [firstAlert, setFirstAlert] = useState("");
+  const [secondAlert, setSecondAlert] = useState("");
 
   // Weekly info from searched
   const [sunTemp, setSunTemp] = useState(0);
@@ -51,6 +54,8 @@ function App() {
           temp, setTemp,
           condition, setCondition,
           conditionIcon, setConditionIcon,
+          firstAlert, setFirstAlert,
+          secondAlert, setSecondAlert,
 
           sunTemp, setSunTemp,
           monTemp, setMonTemp,
@@ -79,6 +84,7 @@ function App() {
       >
         <Header />
         <Body />
+        <News />
         <Footer />
       </AddressContext.Provider>
     </div>

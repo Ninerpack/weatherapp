@@ -192,8 +192,8 @@ const Body = () => {
 
   return (
     <div className="Body_container">
+      {/* BODY */}
       <div className="Body" id="body">
-
         {/* DAILY/CURRENT INFO */}
         <div className="Daily-info">
           <div className="City">{currentDay[0].city}</div>

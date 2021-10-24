@@ -7,7 +7,7 @@ const WeeklyInfoCard = ({ propName, propIcon, propTemp }) => {
       <div className="Icon">
         <img src={propIcon} alt={''} />
       </div>
-      <div className="Temp">{Math.trunc(propTemp) + "°"}</div>
+      <div className="Temp">{propTemp ? Math.trunc(propTemp) + "°" : ""}</div>
     </div>
   );
 };

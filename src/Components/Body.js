@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 // importing the context
 import { AddressContext } from "../App";
+import CurrentWeather from "./CurrentWeather";
 import OtherInfoCard from "./OtherInfoCard";
 import WeeklyInfoCard from "./WeeklyInfoCard";
 
@@ -36,7 +37,7 @@ const Body = () => {
     set,
     humidity,
     visibility,
-    rainChance,
+    feelsLike,
   } = useContext(AddressContext);
 
   const getIcon = (cond) => {
@@ -62,37 +63,36 @@ const Body = () => {
     else if (cond === "50n") return "50n@2x.png";
   };
 
-  const getCurrentIcon = (cond) => {
+  const getCurrentIcon = () => {
   // day
-    if (cond === "01d") return "01d@4x.png";
-    else if (cond === "02d") return "02d@4x.png";
-    else if (cond === "03d") return "03d@4x.png";
-    else if (cond === "04d") return "04d@4x.png";
-    else if (cond === "09d") return "09d@4x.png";
-    else if (cond === "10d") return "10d@4x.png";
-    else if (cond === "11d") return "11d@4x.png";
-    else if (cond === "13d") return "13d@4x.png";
-    else if (cond === "50d") return "50d@4x.png";
+    if (conditionIcon === "01d") return "01d@4x.png";
+    else if (conditionIcon === "02d") return "02d@4x.png";
+    else if (conditionIcon === "03d") return "03d@4x.png";
+    else if (conditionIcon === "04d") return "04d@4x.png";
+    else if (conditionIcon === "09d") return "09d@4x.png";
+    else if (conditionIcon === "10d") return "10d@4x.png";
+    else if (conditionIcon === "11d") return "11d@4x.png";
+    else if (conditionIcon === "13d") return "13d@4x.png";
+    else if (conditionIcon === "50d") return "50d@4x.png";
     // night
-    else if (cond === "01n") return "01n@4x.png";
-    else if (cond === "02n") return "02n@4x.png";
-    else if (cond === "03n") return "03n@4x.png";
-    else if (cond === "04n") return "04n@4x.png";
-    else if (cond === "09n") return "09n@4x.png";
-    else if (cond === "10n") return "10n@4x.png";
-    else if (cond === "11n") return "11n@4x.png";
-    else if (cond === "13n") return "13n@4x.png";
-    else if (cond === "50n") return "50n@4x.png";
+    else if (conditionIcon === "01n") return "01n@4x.png";
+    else if (conditionIcon === "02n") return "02n@4x.png";
+    else if (conditionIcon === "03n") return "03n@4x.png";
+    else if (conditionIcon === "04n") return "04n@4x.png";
+    else if (conditionIcon === "09n") return "09n@4x.png";
+    else if (conditionIcon === "10n") return "10n@4x.png";
+    else if (conditionIcon === "11n") return "11n@4x.png";
+    else if (conditionIcon === "13n") return "13n@4x.png";
+    else if (conditionIcon === "50n") return "50n@4x.png";
   }
 
-  const currentDay = [
+  const currentDay = 
     {
       city: city,
-      icon: getCurrentIcon(String(conditionIcon)),
+      icon: getCurrentIcon(),
       temp: temp,
       condition: condition,
-    },
-  ];
+    };
 
   const daysArray = [
     {
@@ -195,22 +195,14 @@ const Body = () => {
       {/* BODY */}
       <div className="Body" id="body">
         {/* DAILY/CURRENT INFO */}
-        <div className="Daily-info">
-          <div className="City">{currentDay[0].city}</div>
-          <div className="weather-img">
-            <img src={currentDay[0].icon} alt={currentDay[0].icon} />
-          </div>
-          <div className="Temp">{Math.trunc(currentDay[0].temp) + "°"}</div>
-          <div className="Date-time">
-            <span>{getDay() + ", "}</span>
-            <span>{getTime()}</span>
-          </div>
-          <div className="spacer"></div>
-          <div className="Condition">{currentDay[0].condition}</div>
-          <div className="current_location_img">
-            <img src={''} alt={ ''}/>
-          </div>
-        </div>
+        <CurrentWeather
+          cityProp={currentDay.city}
+          iconProp={currentDay.icon}
+          tempProp={currentDay.temp}
+          dayProp={getDay()}
+          timeProp={getTime()}
+          conditionProp={currentDay.condition}
+        />
 
         {/* INFO CONTAINER */}
         <div className="Info-container">
@@ -220,12 +212,20 @@ const Body = () => {
             {hasBeenSearched
               ? daysArray.map((item) => (
                   <WeeklyInfoCard
+                    key={item.dayLabel}
                     propName={item.dayLabel}
                     propIcon={item.condIcon}
                     propTemp={item.temp}
                   />
                 ))
-              : daysArray.map(() => <WeeklyInfoCard />)}
+              : daysArray.map((item) => (
+                  <WeeklyInfoCard
+                    key={item.dayLabel}
+                    propName={""}
+                    propIcon={""}
+                    propTemp={""}
+                  />
+                ))}
           </div>
 
           <div className="Info-title-bottom">Today's Highlights</div>
@@ -287,8 +287,8 @@ const Body = () => {
             {/* Card 6 */}
             {hasBeenSearched ? (
               <OtherInfoCard
-                propName={"Chance of rain"}
-                propInfo={rainChance + "%"}
+                propName={"Feels Like"}
+                propInfo={Math.trunc(feelsLike)}
               />
             ) : (
               <OtherInfoCard />

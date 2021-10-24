@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./SCSS/Main.scss";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
-import News from "./Components/News";
 import Footer from "./Components/Footer";
 
 // AddressContext
@@ -42,7 +41,7 @@ function App() {
   const [set, setSet] = useState(0);
   const [humidity, setHumidity] = useState(0);
   const [visibility, setVisibility] = useState(0);
-  const [rainChance, setRainChance] = useState(0);
+  const [feelsLike, setFeelsLike] = useState(0);
 
   return (
     <div className="App">
@@ -79,12 +78,11 @@ function App() {
           set, setSet,
           humidity, setHumidity,
           visibility, setVisibility,
-          rainChance, setRainChance
+          feelsLike, setFeelsLike
         }}
       >
         <Header />
         <Body />
-        <News />
         <Footer />
       </AddressContext.Provider>
     </div>

@@ -42,19 +42,17 @@ const Header = () => {
     setSet,
     setHumidity,
     setVisibility,
-    setRainChance,
+    setFeelsLike,
   } = useContext(AddressContext);
 
-  // useState
+  // getting the search value
   const [searchTerm, setSearchTerm] = useState("");
-  const [lat, setLat] = useState(0);
-  const [lon, setLon] = useState(0);
-
   const handleInput = (e) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
   };
 
+  // using api to get the daily forecast
   const getDailyForecast = () => {
     axios
       .get(
@@ -67,13 +65,17 @@ const Header = () => {
         setConditionIcon(response.data.weather[0].icon);
         setTemp(response.data.main.temp);
         setCondition(response.data.weather[0].main);
-        setLat(response.data.coord.lat);
-        setLon(response.data.coord.lon);
+
+        // calling this here so the lat and lon values will be correct
+        getWeeklyForecast(response.data.coord.lat, response.data.coord.lon);
+
+        console.log(response)
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  const getWeeklyForecast = () => {
+  // using the api to get the weekly forecast based on the latitude and longitute of the city
+  const getWeeklyForecast = (lat, lon) => {
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_KEY}`
@@ -105,10 +107,12 @@ const Header = () => {
         setSet(res.data.current.sunset);
         setHumidity(res.data.current.humidity);
         setVisibility(res.data.current.visibility);
-        setRainChance(res.data.daily[0].pop);
+        setFeelsLike(res.data.current.feels_like);
 
         setFirstAlert(res.data.alerts[0].event);
         setSecondAlert(res.data.alerts[1].event);
+
+        console.log(res)
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
@@ -128,7 +132,6 @@ const Header = () => {
         <button
           onClick={() => {
             getDailyForecast();
-            getWeeklyForecast();
             setHasBeenSearched(true);
           }}
           id="search_button"

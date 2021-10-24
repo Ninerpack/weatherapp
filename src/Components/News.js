@@ -1,14 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 // importing the context
 import { AddressContext } from "../App";
 
 const News = () => {
-      const {hasBeenSearched, firstAlert, secondAlert} = useContext(AddressContext);
+    const {firstAlert, secondAlert} = useContext(AddressContext);
 
     return (
       <div className="news_container">
-        <div>{hasBeenSearched? "Alert 1:" + firstAlert : "No alerts"}</div>
-        <div>{hasBeenSearched? "Alert 2:" + secondAlert : "No alerts"}</div>
+          {firstAlert && <div className="first_alert"><a href='#'>{firstAlert + " | see more ->"}</a></div>}
+          {secondAlert && <div className="second_alert"><a href='#'>{secondAlert + " | see more ->"} </a></div>}
+          {!firstAlert && !secondAlert && (
+          <div className="no_alert">No Alerts</div>
+        )}
       </div>
     );
 }

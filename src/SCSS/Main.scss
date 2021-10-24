@@ -1,12 +1,13 @@
 @import 'Header';
 @import 'Body';
 @import 'News';
+@import 'Alerts';
 
 html, body, #root {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: rgb(99, 93, 93);
+    background-color: rgb(255, 255, 255);
 }
 
 .App {

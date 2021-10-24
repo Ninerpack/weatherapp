@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SCSS/Main.scss";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
+import Alerts from "./Components/Alerts";
 import Footer from "./Components/Footer";
 
 // AddressContext
@@ -83,6 +84,7 @@ function App() {
       >
         <Header />
         <Body />
+        <Alerts />
         <Footer />
       </AddressContext.Provider>
     </div>

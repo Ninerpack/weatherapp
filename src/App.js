@@ -84,7 +84,7 @@ function App() {
       >
         <Header />
         <Body />
-        <Alerts />
+        { firstAlert ? <Alerts /> : null}
         <Footer />
       </AddressContext.Provider>
     </div>

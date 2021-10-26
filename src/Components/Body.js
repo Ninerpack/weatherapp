@@ -161,12 +161,12 @@ const Body = () => {
   const getSunrise = (rise) => {
     var options = { timeZone: "America/Los_Angeles", timeZoneName: "short" };
     const time = new Date(rise * 1000).toLocaleTimeString("en-US", options);
-    return String(time).slice(0, 5) + " PM";
+    return String(time).slice(0, 4) + " PM";
   };
   const getSunset = (set) => {
     var options = { timeZone: "America/Los_Angeles", timeZoneName: "short" };
     const time = new Date(set * 1000).toLocaleTimeString("en-US", options);
-    return String(time).slice(0, 5) + " AM";
+    return String(time).slice(0, 4) + " AM";
   };
 
   const getTime = () => {
@@ -288,7 +288,7 @@ const Body = () => {
             {hasBeenSearched ? (
               <OtherInfoCard
                 propName={"Feels Like"}
-                propInfo={Math.trunc(feelsLike)}
+                propInfo={Math.trunc(feelsLike) + "°"}
               />
             ) : (
               <OtherInfoCard />

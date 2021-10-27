@@ -13,20 +13,20 @@ const CurrentWeather = ({
 }) => {
   const { hasBeenSearched } = useContext(AddressContext);
   return (
-    <div className="Daily-info">
+    <div className="daily_info">
       { hasBeenSearched &&
         <>
-          <div className="City">{cityProp}</div>
-          <div className="weather-img">
+          <div className="city">{cityProp}</div>
+          <div className="weather_img">
             <img src={iconProp} alt={""} />
           </div>
-          <div className="Temp">{Math.trunc(tempProp) + "°"}</div>
-          <div className="Date-time">
+          <div className="temp">{Math.trunc(tempProp) + "°"}</div>
+          <div className="date_time">
             <span>{dayProp + ", "}</span>
             <span>{timeProp}</span>
           </div>
           <div className="spacer"></div>
-          <div className="Condition">{conditionProp}</div>
+          <div className="condition">{conditionProp}</div>
           <News />
         </>
       }

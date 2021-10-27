@@ -191,9 +191,9 @@ const Body = () => {
   }
 
   return (
-    <div className="Body_container">
+    <div className="body_container">
       {/* BODY */}
-      <div className="Body" id="body">
+      <div className="body" id="body">
         {/* DAILY/CURRENT INFO */}
         <CurrentWeather
           cityProp={currentDay.city}
@@ -205,10 +205,10 @@ const Body = () => {
         />
 
         {/* INFO CONTAINER */}
-        <div className="Info-container">
-          <div className="Info-title-top">Today / Week</div>
+        <div className="info_container">
+          <div className="info_title_top">Today / Week</div>
           {/*///////// WEEKLY INFO //////////////*/}
-          <div className="Weekly-info">
+          <div className="weekly_info">
             {hasBeenSearched
               ? daysArray.map((item) => (
                   <WeeklyInfoCard
@@ -228,9 +228,9 @@ const Body = () => {
                 ))}
           </div>
 
-          <div className="Info-title-bottom">Today's Highlights</div>
+          <div className="info_title_bottom">Today's Highlights</div>
           {/*///////////// OTHER INFO /////////////*/}
-          <div className="Other-info">
+          <div className="other_info">
             {/* Card 1 */}
             {hasBeenSearched ? (
               <OtherInfoCard

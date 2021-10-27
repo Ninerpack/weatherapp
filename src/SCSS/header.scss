@@ -1,16 +1,15 @@
 
-.Header {
-    height: 15%;
-    width: auto;
+.header {
+    height: 10%;
     padding: 3rem;
     color: #000;
     display: flex;
     justify-content: space-between;
     align-content: center;
     font-size: 30pt;
-    .Nav{
+    .nav{
         margin-right: 4rem;
-        .Search {
+        .search {
             border-color: black;
         }
     }

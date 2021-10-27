@@ -4,14 +4,14 @@
 $white: #fff;
 $black: #000;
 
-.Body_container{
+.body_container{
     margin: 2rem;
     padding: 0;
     position: relative;
     display: flex;
     justify-content: center;
 
-    .Body {
+    .body {
         font-family: 'Quicksand', sans-serif;
         min-height: 50rem;
         width: 100rem;
@@ -24,20 +24,20 @@ $black: #000;
         background-color: rgb(240, 238, 238);
         display: flex;
 
-        .Daily-info {
+        .daily_info {
             width: 27%;
             min-height: 100%;
             border-radius: 25px 0px 0px 25px;
             background-color: $white;
 
-            .City {
+            .city {
                 font-size: 50px;
                 margin-left: 3rem;
                 margin-top: 3rem;
                 margin-right: 3rem;
             }
 
-            .weather-img {
+            .weather_img {
                 margin-left: 3rem;
                 margin-top: 1rem;
                 
@@ -46,14 +46,14 @@ $black: #000;
                 }
             }
 
-            .Temp {
+            .temp {
                 font-size: 60px;
                 margin-left: 3rem;
                 margin-top: 1rem;
                 margin-bottom: 1rem;
             }
 
-            .Date-time {
+            .date_time {
                 margin-left: 3rem;
                 margin-bottom: 2rem;
                 
@@ -70,33 +70,33 @@ $black: #000;
                 margin-left: 3rem;
             }
 
-            .Condition {
+            .condition {
                 font-size: 20px;
                 margin-left: 3rem;
                 margin-top: 1rem;
             }
         }
 
-        .Info-container {
+        .info_container {
             max-width: 75%;
             height: 100%;
             margin-left: 5rem;
 
 
-            .Info-title-top {
+            .info_title_top {
                 font-size: 20px;
                 font-weight: bold;
                 margin-top: 3rem;
                 margin-left: .5rem;
             }
-            .Info-title-bottom {
+            .info_title_bottom {
                 font-size: 20px;
                 font-weight: bold;
                 margin-top: 3rem;
                 margin-left: .5rem;
             }
 
-            .Weekly-info {
+            .weekly_info {
                 width: 100%;
                 height: 20%;
                 margin-top: 2rem;
@@ -104,7 +104,7 @@ $black: #000;
                 flex-wrap: wrap;
                 align-items: center;
 
-                .Card-small {
+                .card_small {
                     font-weight: bold;
                     background-color: $white;
                     width: 6rem;
@@ -117,42 +117,42 @@ $black: #000;
                     align-items: center;
                     flex: 1 0 calc((100% - 1rem) / 7 - 1rem);
 
-                    .Day {
+                    .day {
                         margin-top: .5rem;
                     }
 
-                    .Card-title {
+                    .card_title {
                         margin-top: .5rem;
                     }
 
-                    .Icon {
+                    .icon {
                         img{
                             width: 70px;
                         }
                     }
 
-                    .Temp {
+                    .temp {
                         margin-bottom: .5rem;
                     }
 
                 }
             }
 
-            .Other-info {
+            .other_info {
                 width: 100%;
                 margin-top: 2rem;
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
 
-                .Card-big {
+                .card_big {
                     background-color: $white;
                     flex: 1 0 calc((100% - 1rem) / 3 - 1rem); // shorthand for flex: flex-grow, flex-shrink, flex-basis(size); 33.33% is best practice
                     height: 10rem;
                     margin: .5rem;
                     border-radius: 15px;
 
-                    .Card-title {
+                    .card_title {
                         margin-top: .5rem;
                         margin-left: 1rem;
                         height: 25%;
@@ -162,7 +162,7 @@ $black: #000;
                         font-size: 19px;
                     }
 
-                    .Card-info {
+                    .card_info {
                         margin-top: .5rem;
                         height: 60%;
                         width: 100%;
@@ -172,7 +172,7 @@ $black: #000;
                         font-size: 35px;
                         font-weight: bold;
 
-                        .Prop-body {
+                        .prop_body {
                             width: 100%;
                             height: 100%;
                             display: flex;
@@ -180,11 +180,11 @@ $black: #000;
                             align-items: center;
                             justify-content: space-around;
 
-                            .Info-1 {
+                            .info_1 {
                                 font-size: 25px;
                             }
 
-                            .Info-2 {
+                            .info_2 {
                                 font-size: 20px;
                             }
                         }

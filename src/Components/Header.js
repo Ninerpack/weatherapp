@@ -119,9 +119,9 @@ const Header = () => {
 
 
   return (
-    <div className="Header">
+    <div className="header">
       Weather
-      <nav className="Nav">
+      <nav className="nav">
         <input
           type="text"
           onChange={handleInput}
